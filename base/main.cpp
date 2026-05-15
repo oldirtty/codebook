@@ -2,10 +2,12 @@
 using namespace std;
 using ll = long long;
 
-int main(){
-    ios_base::sync_with_stdio(0); cin.tie(0);
+#define fastio ios::sync_with_stdio(0); cin.tie(0)
 
-    //code
+int main() {
+  fastio;
 
-    return 0;
+  // code
+
+  return 0;
 }

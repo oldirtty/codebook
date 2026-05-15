@@ -2,15 +2,17 @@
 using namespace std;
 using ll = long long;
 
-void solve(){
-    //code
+#define fastio ios::sync_with_stdio(0); cin.tie(0)
+
+void solve() {
+  // code
 }
 
-int main(){
-    ios_base::sync_with_stdio(0); cin.tie(0);
+int main() {
+  fastio;
 
-    int tc; cin >> tc;
-    while (tc--) solve();
+  int tc; cin >> tc;
+  while (tc--) solve();
 
-    return 0;
+  return 0;
 }
