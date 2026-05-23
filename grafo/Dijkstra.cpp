@@ -1,7 +1,7 @@
 // O((V + E)logV) ou O(E logV) - S(V)
 const ll N = 2e5 + 1, INF = 1e18;
-vector<pair<ll, ll>> graph[N];
-vector<ll> dist(N);
+vector<vector<pair<ll, ll>>> graph;
+vector<ll> dist;
 int n, m;
 
 void dijkstra(int s) {
@@ -13,8 +13,7 @@ void dijkstra(int s) {
   while (!pq.empty()) {
     auto [du, u] = pq.top();
     pq.pop();
-    if (-du > d[u])
-      continue; // otimização
+    if (-du > d[u]) continue; // otimização
 
     // v = vizinho, w = peso
     for (auto &[v, w] : graph[u]) {

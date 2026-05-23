@@ -1,5 +1,5 @@
 struct FenwickTree {
-  vector<int> bit; // binary indexed tree
+  vector<int> bit;
   int n;
 
   FenwickTree(int n) {
@@ -7,14 +7,15 @@ struct FenwickTree {
     bit.assign(n, 0);
   }
 
-    FenwickTree(vector<int> const &v) : FenwickTree(v.size()){
-        for (int i = 0; i < v.size(); ++i)
-            add(i, v[i]);
-    }
+  FenwickTree(vector<int> const &v) : FenwickTree(v.size()){
+    for (int i = 0; i < v.size(); ++i)
+      add(i, v[i]);
+  }
 
   int soma(int r) {
     int ret = 0;
-    for (; r >= 0; r = (r & (r + 1)) - 1) ret += bit[r];
+    for (; r >= 0; r = (r & (r + 1)) - 1)
+      ret += bit[r];
     return ret;
   }
 
@@ -23,6 +24,7 @@ struct FenwickTree {
   }
 
   void add(int idx, int delta) {
-    for (; idx < n; idx = idx | (idx + 1)) bit[idx] += delta;
+    for (; idx < n; idx = idx | (idx + 1))
+      bit[idx] += delta;
   }
 };
