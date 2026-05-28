@@ -6,12 +6,12 @@
 
 Este é o meu codebook pessoal para maratonas de programação competitiva.
 
-A compilação é automatizada via GitHub Actions. Basta editar os arquivos, enviar para o GitHub e o PDF é gerado automaticamente.
+A compilação é automatizada via GitHub Actions. Basta editar os arquivos e enviar para o GitHub que o PDF será gerado automaticamente.
 
 ## Como usar
 
-1. Editar o `content.tex` para organizar as seções
-2. Colocar os códigos `.cpp` nas pastas correspondentes
+1. Colocar os códigos `.cpp` nas pastas correspondentes
+2. Editar o `content.tex` para importar os códigos no documento
 3. Fazer push
 4. O PDF aparece commitado na raiz: `codebook.pdf`
 
