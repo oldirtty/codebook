@@ -6,15 +6,9 @@ using ll = long long;
 #define all(v) (v).begin(),(v).end()
 
 int main() {
-    fastio
+    fastio;
 
     // code
 
     return 0;
 }
-
-/* Shell script
-for a in {A..}; do
-    cat base.cpp >> "$a.cpp"
-done
-*/
