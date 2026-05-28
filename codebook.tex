@@ -20,8 +20,8 @@
 \usepackage{amsmath, courier, listings, fancyhdr, graphicx}
 \topmargin=0pt
 \headsep=2pt
-\textheight=790pt
-\footskip=0pt
+\textheight=786pt
+\footskip=4pt
 \voffset=-50pt
 \textwidth=545pt
 \marginparsep=0pt
@@ -35,6 +35,26 @@
 
 \setmainfont{Consolas}
 \setmonofont{Consolas}
+% Fallback para caracteres Unicode ausentes na Consolas (-> union inter equiv etc.)
+\newfontfamily\UnicodeFallback{DejaVu Sans Mono}
+\usepackage{newunicodechar}
+\newunicodechar{→}{\UnicodeFallback →}
+\newunicodechar{∪}{\UnicodeFallback ∪}
+\newunicodechar{∩}{\UnicodeFallback ∩}
+\newunicodechar{≡}{\UnicodeFallback ≡}
+\newunicodechar{≥}{\UnicodeFallback ≥}
+\newunicodechar{≤}{\UnicodeFallback ≤}
+\newunicodechar{≠}{\UnicodeFallback ≠}
+\newunicodechar{∈}{\UnicodeFallback ∈}
+\newunicodechar{∑}{\UnicodeFallback ∑}
+\newunicodechar{∏}{\UnicodeFallback ∏}
+\newunicodechar{√}{\UnicodeFallback √}
+\newunicodechar{∞}{\UnicodeFallback ∞}
+\newunicodechar{φ}{\UnicodeFallback φ}
+\newunicodechar{π}{\UnicodeFallback π}
+\newunicodechar{σ}{\UnicodeFallback σ}
+\newunicodechar{Σ}{\UnicodeFallback Σ}
+\newunicodechar{Π}{\UnicodeFallback Π}
 \XeTeXlinebreakskip = 0pt plus 1pt             % Espaçamento entre parágrafos
 \setcounter{secnumdepth}{3}                    % Profundidade da numeração no sumário
 
