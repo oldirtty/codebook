@@ -1,30 +1,31 @@
+// O(logN)
 struct FenwickTree {
-  vector<int> bit;
-  int n;
+    vector<int> bit;
+    int n;
 
-  FenwickTree(int n) {
-    this->n = n;
-    bit.assign(n, 0);
-  }
+    FenwickTree(int n) : n(n), bit(n + 1, 0) {}
 
-  FenwickTree(vector<int> const &v) : FenwickTree(v.size()){
-    for (int i = 0; i < v.size(); ++i)
-      add(i, v[i]);
-  }
+    FenwickTree(vector<int> const& v) : FenwickTree(v.size()) {
+        for (int i = 0; i < (int)v.size(); i++)
+        add(i + 1, v[i]);
+    }
 
-  int soma(int r) {
-    int ret = 0;
-    for (; r >= 0; r = (r & (r + 1)) - 1)
-      ret += bit[r];
-    return ret;
-  }
+    // Soma prefixo [1, r]
+    int soma(int r) {
+        int ret = 0;
+        for (; r > 0; r -= r & (-r))
+        ret += bit[r];
+        return ret;
+    }
 
-  int soma(int l, int r) {
-    return soma(r) - soma(l - 1);
-  }
+    // Soma intervalo [l, r] (1-based)
+    int soma(int l, int r) {
+        return soma(r) - soma(l - 1);
+    }
 
-  void add(int idx, int delta) {
-    for (; idx < n; idx = idx | (idx + 1))
-      bit[idx] += delta;
-  }
+    // Adiciona delta no índice idx (1-based)
+    void add(int idx, int delta) {
+        for (; idx <= n; idx += idx & (-idx))
+        bit[idx] += delta;
+    }
 };

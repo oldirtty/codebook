@@ -5,22 +5,22 @@ vector<ll> dist;
 int n, m;
 
 void dijkstra(int s) {
-  dist.assign(n + 1, INF);
-  priority_queue<pair<ll, ll>> pq;
-  dist[s] = 0;
-  pq.push({0, s});
+    dist.assign(n + 1, INF);
+    priority_queue<pair<ll, ll>> pq;
+    dist[s] = 0;
+    pq.push({0, s});
 
-  while (!pq.empty()) {
-    auto [du, u] = pq.top();
-    pq.pop();
-    if (-du > d[u]) continue; // otimização
+    while (!pq.empty()) {
+        auto [du, u] = pq.top();
+        pq.pop();
+        if (-du > d[u]) continue; // otimização
 
-    // v = vizinho, w = peso
-    for (auto &[v, w] : graph[u]) {
-      if (d[u] + w < d[v]) {
-        d[v] = d[u] + w;
-        pq.push({-d[v], v}); // -d[v] p manter ordenação crescente
-      }
+        // v = vizinho, w = peso
+        for (auto &[v, w] : graph[u]) {
+            if (d[u] + w < d[v]) {
+                d[v] = d[u] + w;
+                pq.push({-d[v], v}); // -d[v] p manter ordenação crescente
+            }
+        }
     }
-  }
 }

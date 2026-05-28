@@ -2,12 +2,19 @@
 using namespace std;
 using ll = long long;
 
-#define fastio ios::sync_with_stdio(0); cin.tie(0)
+#define fastio ios::sync_with_stdio(0); cin.tie(0);
+#define all(v) (v).begin(),(v).end()
 
 int main() {
-  fastio;
+    fastio
 
-  // code
+    // code
 
-  return 0;
+    return 0;
 }
+
+/* Shell script
+for a in {A..}; do
+    cat base.cpp >> "$a.cpp"
+done
+*/
