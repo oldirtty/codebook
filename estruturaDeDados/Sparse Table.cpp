@@ -4,15 +4,15 @@
 vector<int> log2;
 vector<vector<int>> st;
 
-void build_sparse(vector<int> &arr) {
-    int n = arr.size();
+void build_sparse(vector<int> &v) {
+    int n = v.size();
     log2.resize(n + 1);
     log2[1] = 0;
     for (int i = 2; i <= n; i++) log2[i] = log2[i/2] + 1;
 
     int K = log2[n] + 1;
     st.assign(K, vector<int>(n));
-    st[0] = arr;
+    st[0] = v;
 
     for (int j = 1; j < K; j++)
         for (int i = 0; i + (1 << j) <= n; i++)
@@ -25,8 +25,8 @@ int query_min(int L, int R) {
     return min(st[j][L], st[j][R - (1 << j) + 1]);
 }
 
-// Versão para array 2D: mínimo em submatriz
-// Build: O(N*M*logN*logM) | Query: O(1)
+// Versão para vetor 2D: mínimo em submatriz
+// Build: O(N * M * logN * logM) | Query: O(1)
 vector<vector<vector<vector<int>>>> st2d;
 
 void build_sparse2d(vector<vector<int>> &mat) {

@@ -2,7 +2,7 @@
 //
 // Uso:
 //     SegTree st(n);
-//     for (int i = 1; i <= n; i++) st.vet[i] = valor;
+//     for (int i = 1; i <= n; i++) st.v[i] = valor;
 //     st.build(1, 1, n);
 //     st.update(1, 1, n, pos, novoValor);    // atualiza posição pos
 //     st.query(1, 1, n, l, r);               // soma em [l, r]
@@ -12,19 +12,19 @@
 // tree[4*N] garante espaço suficiente para a árvore
 
 struct SegTree {
-    vector<ll> vet, tree;
+    vector<int> v, tree;
     int n;
 
     SegTree(int n) : n(n) {
         tree.resize(4*n);
-        vet.resize(n + 1);
-    } 
+        v.resize(n + 1);
+    }
 
-    // Constrói a árvore a partir de vet[]
+    // Constrói a árvore a partir de v[]
     // Chame: build(1, 1, n)
     void build(int no, int l, int r) {
         if (l == r) {
-            tree[no] = vet[l];
+            tree[no] = v[l];
             return;
         }
         int m = l + (r - l) / 2;
@@ -35,7 +35,7 @@ struct SegTree {
 
     // Atualiza posição pos com valor val (substitui)
     // Chame: update(1, 1, n, pos, val)
-    void update(int no, int l, int r, int pos, ll val) {
+    void update(int no, int l, int r, int pos, int val) {
         if (l == r) {
             tree[no] = val;
             return;
@@ -48,7 +48,7 @@ struct SegTree {
 
     // Retorna soma em [ql, qr]
     // Chame: query(1, 1, n, ql, qr)
-    ll query(int no, int l, int r, int ql, int qr) {
+    int query(int no, int l, int r, int ql, int qr) {
         if (l > qr || r < ql) return 0; // fora do intervalo
         if (l >= ql && r <= qr) return tree[no]; // totalmente dentro
         int m = l + (r - l) / 2;
