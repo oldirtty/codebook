@@ -1,20 +1,20 @@
 \documentclass[10pt,twocolumn,oneside,a4paper]{article}
-\setlength{\columnsep}{10pt}                    % Espaçamento entre colunas
-\setlength{\columnseprule}{0pt}                 % Linha entre colunas (0 = sem linha)
+\setlength{\columnsep}{10pt}          % Espaçamento entre colunas
+\setlength{\columnseprule}{0pt}         % Linha entre colunas (0 = sem linha)
 
-\usepackage{amsthm}                             % Definições, teoremas
+\usepackage{amsthm}               % Definições, teoremas
 \usepackage{amssymb}
-\usepackage{fontspec}                           % Configuração de fontes
+\usepackage{fontspec}               % Configuração de fontes
 \usepackage{color}
 \usepackage[x11names]{xcolor}
-\usepackage{listings}                           % Exibição de código
-\usepackage{fancyhdr}                           % Cabeçalho e rodapé
-\usepackage{graphicx}                           % Imagens
+\usepackage{listings}               % Exibição de código
+\usepackage{fancyhdr}               % Cabeçalho e rodapé
+\usepackage{graphicx}               % Imagens
 \usepackage{enumerate}
 \usepackage{titlesec}
 \usepackage{amsmath}
-\usepackage{tikz}                               % Desenho de autômatos finitos
-\usepackage{afterpage}                          % Controle de conteúdo pós-página
+\usepackage{tikz}                 % Desenho de autômatos finitos
+\usepackage{afterpage}              % Controle de conteúdo pós-página
 \usepackage{multicol}
 
 \usepackage{amsmath, courier, listings, fancyhdr, graphicx}
@@ -55,35 +55,35 @@
 \newunicodechar{σ}{\UnicodeFallback σ}
 \newunicodechar{Σ}{\UnicodeFallback Σ}
 \newunicodechar{Π}{\UnicodeFallback Π}
-\XeTeXlinebreakskip = 0pt plus 1pt             % Espaçamento entre parágrafos
-\setcounter{secnumdepth}{3}                    % Profundidade da numeração no sumário
+\XeTeXlinebreakskip = 0pt plus 1pt       % Espaçamento entre parágrafos
+\setcounter{secnumdepth}{3}          % Profundidade da numeração no sumário
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \makeatletter
 \lst@CCPutMacro\lst@ProcessOther {"2D}{\lst@ttfamily{-{}}{-{}}}
 \@empty\z@\@empty
 \makeatother
-\lstset{                                       % Configuração de exibição de código
-    language=C++,                              % Linguagem do código
-    basicstyle=\footnotesize\ttfamily,         % Tamanho e fonte do código
-    %numbers=left,                             % Números de linha (esquerda)
-    numberstyle=\footnotesize,                 % Tamanho dos números de linha
-    stepnumber=1,                              % Numeração a cada linha
-    numbersep=5pt,                             % Distância número-código
-    backgroundcolor=\color{white},             % Cor de fundo
-    showspaces=false,                          % Mostrar espaços
-    showstringspaces=false,                    % Sublinhar espaços em strings
-    showtabs=false,                            % Mostrar tabs
-    frame=false,                               % Moldura ao redor do código
-    tabsize=2,                                 % Tamanho do tab
-    captionpos=b,                              % Legenda abaixo
-    breaklines=true,                           % Quebra de linha automática
-    breakatwhitespace=false,                   % Quebrar apenas em espaços
-    escapeinside={\%*}{*)},                    % Delimitadores para comentários no código
-    morekeywords={*},                          % Palavras-chave extras
-    keywordstyle=\bfseries\color{Blue1},
-    commentstyle=\itshape\color{Red4},
-    stringstyle=\itshape\color{Green4},
+\lstset{                     % Configuração de exibição de código
+  language=C++,                % Linguagem do código
+  basicstyle=\footnotesize\ttfamily,     % Tamanho e fonte do código
+  %numbers=left,               % Números de linha (esquerda)
+  numberstyle=\footnotesize,         % Tamanho dos números de linha
+  stepnumber=1,                % Numeração a cada linha
+  numbersep=5pt,               % Distância número-código
+  backgroundcolor=\color{white},       % Cor de fundo
+  showspaces=false,              % Mostrar espaços
+  showstringspaces=false,          % Sublinhar espaços em strings
+  showtabs=false,              % Mostrar tabs
+  frame=false,                 % Moldura ao redor do código
+  tabsize=2,                 % Tamanho do tab
+  captionpos=b,                % Legenda abaixo
+  breaklines=true,               % Quebra de linha automática
+  breakatwhitespace=false,           % Quebrar apenas em espaços
+  escapeinside={\%*}{*)},          % Delimitadores para comentários no código
+  morekeywords={*},              % Palavras-chave extras
+  keywordstyle=\bfseries\color{Blue1},
+  commentstyle=\itshape\color{Red4},
+  stringstyle=\itshape\color{Green4},
 }
 
 %----------------------------------------------------------------------------------------
@@ -120,11 +120,11 @@
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancypagestyle{plain}{
-    \fancyhf{}
-    \fancyhead[C]{\NomeEquipe}
-    \fancyhead[L]{\Universidade}
-    \fancyhead[R]{\thepage}
-    \renewcommand{\headrulewidth}{0.4pt}
+  \fancyhf{}
+  \fancyhead[C]{\NomeEquipe}
+  \fancyhead[L]{\Universidade}
+  \fancyhead[R]{\thepage}
+  \renewcommand{\headrulewidth}{0.4pt}
 }
 
 \renewcommand{\headrulewidth}{0.4pt}
@@ -137,7 +137,7 @@
 \fancyhead[L]{\Universidade}
 \fancyhead[R]{\thepage}
 \renewcommand{\headrulewidth}{0.4pt}
-\renewcommand{\contentsname}{Sumário}           % "Contents" → "Sumário"
+\renewcommand{\contentsname}{Sumário}       % "Contents" → "Sumário"
 
 \textbf{
 \scriptsize

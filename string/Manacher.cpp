@@ -18,18 +18,18 @@
 // Como usar:
 //   1. Chame manacher(s) para pré-computar p[]
 //   2. Use getLongest(i, true)  → raio do maior palíndromo ímpar centrado em i
-//      Use getLongest(i, false) → raio do maior palíndromo par centrado entre i e i+1
+//    Use getLongest(i, false) → raio do maior palíndromo par centrado entre i e i+1
 //   3. O tamanho real do palíndromo é igual ao raio retornado
-//      ímpar: tamanho = 2*raio + 1,  começa em i - raio
-//      par:   tamanho = 2*raio,      começa em i - raio + 1
+//    ímpar: tamanho = 2*raio + 1,  começa em i - raio
+//    par:   tamanho = 2*raio,    começa em i - raio + 1
 //
 // Exemplo de uso (maior palíndromo):
 //   manacher(s);
 //   for (int i = 0; i < s.size(); i++) {
-//     int r = getLongest(i, true);   // ímpar
-//     // palíndromo: s.substr(i - r, 2*r + 1)
-//     int r = getLongest(i, false);  // par
-//     // palíndromo: s.substr(i - r + 1, 2*r)
+//   int r = getLongest(i, true);   // ímpar
+//   // palíndromo: s.substr(i - r, 2*r + 1)
+//   int r = getLongest(i, false);  // par
+//   // palíndromo: s.substr(i - r + 1, 2*r)
 //   }
 
 vector<int> p;
@@ -44,10 +44,10 @@ void manacher(const string& s) {
 
   int c = 0, r = 0;
   for (int i = 1; i < n - 1; i++) {
-    int mirror = 2 * c - i;
-    if (i < r) p[i] = min(r - i, p[mirror]);
-    while (t[i + p[i] + 1] == t[i - p[i] - 1]) p[i]++;
-    if (i + p[i] > r) { c = i; r = i + p[i]; }
+  int mirror = 2 * c - i;
+  if (i < r) p[i] = min(r - i, p[mirror]);
+  while (t[i + p[i] + 1] == t[i - p[i] - 1]) p[i]++;
+  if (i + p[i] > r) { c = i; r = i + p[i]; }
   }
 }
 

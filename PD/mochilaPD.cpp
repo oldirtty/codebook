@@ -5,8 +5,8 @@
 void knapsack01(int n, int W, vector<ll>& w, vector<ll>& v) {
   vector<ll> dp(W + 1, 0);
   for (int i = 0; i < n; i++)
-    for (int j = W; j >= w[i]; j--)
-      dp[j] = max(dp[j], dp[j - w[i]] + v[i]);
+  for (int j = W; j >= w[i]; j--)
+    dp[j] = max(dp[j], dp[j - w[i]] + v[i]);
   cout << dp[W] << '\n';
 }
 
@@ -16,8 +16,8 @@ void knapsack01(int n, int W, vector<ll>& w, vector<ll>& v) {
 void knapsack(int n, int W, vector<ll>& w, vector<ll>& v) {
   vector<ll> dp(W + 1, 0);
   for (int i = 0; i < n; i++)
-    for (int j = w[i]; j <= W; j++)
-      dp[j] = max(dp[j], dp[j - w[i]] + v[i]);
+  for (int j = w[i]; j <= W; j++)
+    dp[j] = max(dp[j], dp[j - w[i]] + v[i]);
   cout << dp[W] << '\n';
 }
 
@@ -31,10 +31,10 @@ void knapsack01ByValue(int n, int W, vector<ll>& w, vector<ll>& v) {
   vector<ll> dp(total + 1, LLONG_MAX / 2);
   dp[0] = 0;
   for (int i = 0; i < n; i++)
-    for (int j = total; j >= v[i]; j--)
-      dp[j] = min(dp[j], dp[j - v[i]] + w[i]);
+  for (int j = total; j >= v[i]; j--)
+    dp[j] = min(dp[j], dp[j - v[i]] + w[i]);
   ll ans = 0;
   for (ll j = 0; j <= total; j++)
-    if (dp[j] <= W) ans = j;
+  if (dp[j] <= W) ans = j;
   cout << ans << '\n';
 }

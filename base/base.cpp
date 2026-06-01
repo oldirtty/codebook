@@ -6,9 +6,9 @@ using ll = long long;
 #define all(v) (v).begin(),(v).end()
 
 int main() {
-    fastio;
+  fastio;
 
-    // code
+  // code
 
-    return 0;
+  return 0;
 }

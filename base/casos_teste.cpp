@@ -6,14 +6,14 @@ using ll = long long;
 #define all(v) (v).begin(),(v).end()
 
 void solve() {
-    // code
+  // code
 }
 
 int main() {
-    fastio
+  fastio
 
-    int tc; cin >> tc;
-    while (tc--) solve();
+  int tc; cin >> tc;
+  while (tc--) solve();
 
-    return 0;
+  return 0;
 }
