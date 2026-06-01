@@ -2,42 +2,42 @@ name: Compilar Codebook
 
 on:
   push:
-  paths-ignore:
-    - 'README.md'
+    paths-ignore:
+      - 'README.md'
   workflow_dispatch:
 
 jobs:
   compilar:
-  runs-on: ubuntu-latest
-  permissions:
-    contents: write
-  steps:
-    - name: Checkout
-    uses: actions/checkout@v4
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
 
-    - name: Instalar fontes
-    run: |
-      mkdir -p ~/.local/share/fonts
-      cp .fonts/ttf/* ~/.local/share/fonts/
-      fc-cache -fv
+      - name: Instalar fontes
+        run: |
+          mkdir -p ~/.local/share/fonts
+          cp .fonts/ttf/* ~/.local/share/fonts/
+          fc-cache -fv
 
-    - name: Instalar TeX Live
-    run: |
-      sudo apt-get update -qq
-      sudo apt-get install -y -qq \
-      texlive-xetex \
-      texlive-latex-recommended \
-      texlive-latex-extra \
-      texlive-fonts-extra \
-      texlive-pictures
+      - name: Instalar TeX Live
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq \
+            texlive-xetex \
+            texlive-latex-recommended \
+            texlive-latex-extra \
+            texlive-fonts-extra \
+            texlive-pictures
 
-    - name: Compilar
-    run: |
-      xelatex -interaction=nonstopmode codebook.tex
-      xelatex -interaction=nonstopmode codebook.tex
+      - name: Compilar
+        run: |
+          xelatex -interaction=nonstopmode codebook.tex
+          xelatex -interaction=nonstopmode codebook.tex
 
-    - name: Commit PDF
-    uses: stefanzweifel/git-auto-commit-action@v4
-    with:
-      commit_message: "build: atualiza codebook.pdf"
-      file_pattern: codebook.pdf
+      - name: Commit PDF
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "build: atualiza codebook.pdf"
+          file_pattern: codebook.pdf
