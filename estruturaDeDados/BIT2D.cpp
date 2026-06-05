@@ -13,7 +13,7 @@ struct FenwickTree2D {
   }
 
   // Soma prefixo [1,1] até (x, y)
-  int soma(int x, int y) {
+  int sum(int x, int y) {
     int ret = 0;
     for (int i = x; i > 0; i -= i & (-i))
     for (int j = y; j > 0; j -= j & (-j))
@@ -23,9 +23,9 @@ struct FenwickTree2D {
 
   // Soma retângulo (x1,y1) até (x2,y2) (1-based)
   int soma(int x1, int y1, int x2, int y2) {
-    return soma(x2, y2)
-      - soma(x1 - 1, y2)
-      - soma(x2, y1 - 1)
-      + soma(x1 - 1, y1 - 1);
+    return sum(x2, y2)
+      - sum(x1 - 1, y2)
+      - sum(x2, y1 - 1)
+      + sum(x1 - 1, y1 - 1);
   }
 };

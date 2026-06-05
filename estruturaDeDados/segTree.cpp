@@ -20,6 +20,10 @@ struct SegTree {
     v.resize(n + 1);
   }
 
+  int join(int a, int b) {
+    return a + b;
+  }
+
   // Constrói a árvore a partir de v[]
   // Chame: build(1, 1, n)
   void build(int no, int l, int r) {
@@ -27,10 +31,11 @@ struct SegTree {
       tree[no] = v[l];
       return;
     }
-    int m = l + (r - l) / 2;
-    build(2 * no, l, m);
-    build(2 * no + 1, m + 1, r);
-    tree[no] = tree[2 * no] + tree[2 * no + 1]; // merge (operacao de soma)
+    int m = l + (r-l)/2;
+    build(2*no, l, m);
+    build(2*no + 1, m + 1, r);
+
+    tree[no] = join(tree[2*no], tree[2*no + 1]); // join (tipo da seg)
   }
 
   // Atualiza posição pos com valor val (substitui)
@@ -40,10 +45,11 @@ struct SegTree {
       tree[no] = val;
       return;
     }
-    int m = l + (r - l) / 2;
-    if (pos <= m) update(2 * no, l, m, pos, val);
-    else update(2 * no + 1, m + 1, r, pos, val);
-    tree[no] = tree[2 * no] + tree[2 * no + 1]; // atualiza nós pai
+    int m = l + (r-l)/2;
+    if (pos <= m) update(2*no, l, m, pos, val);
+    else update(2*no + 1, m + 1, r, pos, val);
+
+    tree[no] = join(tree[2*no], tree[2*no + 1]); // atualiza nós pai
   }
 
   // Retorna soma em [ql, qr]
@@ -51,8 +57,8 @@ struct SegTree {
   int query(int no, int l, int r, int ql, int qr) {
     if (l > qr || r < ql) return 0; // fora do intervalo
     if (l >= ql && r <= qr) return tree[no]; // totalmente dentro
-    int m = l + (r - l) / 2;
+    int m = l + (r-l)/2;
 
-    return query(2 * no, l, m, ql, qr) + query(2 * no + 1, m + 1, r, ql, qr);
+    return query(2*no, l, m, ql, qr) + query(2*no + 1, m + 1, r, ql, qr);
   }
 };

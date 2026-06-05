@@ -6,26 +6,23 @@ struct FenwickTree {
   FenwickTree(int n) : n(n), bit(n + 1, 0) {}
 
   FenwickTree(vector<int> const& v) : FenwickTree(v.size()) {
-    for (int i = 0; i < (int)v.size(); i++)
-    add(i + 1, v[i]);
+    for (int i = 0; i < (int)v.size(); i++) add(i + 1, v[i]);
   }
 
   // Soma prefixo [1, r]
-  int soma(int r) {
+  int sum(int r) {
     int ret = 0;
-    for (; r > 0; r -= r & (-r))
-    ret += bit[r];
+    for (; r > 0; r -= r & (-r)) ret += bit[r];
     return ret;
   }
 
   // Soma intervalo [l, r] (1-based)
-  int soma(int l, int r) {
-    return soma(r) - soma(l - 1);
+  int sum(int l, int r) {
+    return sum(r) - sum(l - 1);
   }
 
   // Adiciona delta no índice idx (1-based)
   void add(int idx, int delta) {
-    for (; idx <= n; idx += idx & (-idx))
-    bit[idx] += delta;
+    for (; idx <= n; idx += idx & (-idx)) bit[idx] += delta;
   }
 };

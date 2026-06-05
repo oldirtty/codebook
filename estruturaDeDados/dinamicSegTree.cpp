@@ -25,7 +25,7 @@ struct DinamicSegTree {
       no->val = val;
       return;
     }
-    ll m = l + (r - l) / 2;
+    ll m = l + (r-l)/2;
     // Cria filho só quando necessário (dinâmico)
     if (pos <= m) {
       if (!no->left) no->left = new Node();
@@ -41,7 +41,7 @@ struct DinamicSegTree {
   ll query(Node* no, ll l, ll r, ll ql, ll qr) {
     if (!no || l > qr || r < ql) return 0;
     if (l >= ql && r <= qr) return no->val;
-    ll m = l + (r - l) / 2;
+    ll m = l + (r-l)/2;
     return query(no->left, l, m, ql, qr) + query(no->right, m + 1, r, ql, qr);
   }
 };

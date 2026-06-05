@@ -31,7 +31,7 @@ struct SegTree2D {
   // Atualiza coluna y com delta na árvore Y do nó X
   void updateY(NodeY* no, ll l, ll r, ll y, ll delta) {
     if (l == r) { no->val += delta; return; }
-    ll m = l + (r - l) / 2;
+    ll m = l + (r-l)/2;
     if (y <= m) {
       if (!no->left) no->left = new NodeY();
       updateY(no->left, l, m, y, delta);
@@ -46,7 +46,7 @@ struct SegTree2D {
   ll queryY(NodeY* no, ll l, ll r, ll ql, ll qr) {
     if (!no || l > qr || r < ql) return 0;
     if (l >= ql && r <= qr) return no->val;
-    ll m = l + (r - l) / 2;
+    ll m = l + (r-l)/2;
     return queryY(no->left,  l,   m, ql, qr)
     + queryY(no->right, m + 1, r, ql, qr);
   }
@@ -55,7 +55,7 @@ struct SegTree2D {
   void updateX(NodeX* no, ll l, ll r, ll x, ll y, ll delta) {
     updateY(no->yRoot, 1, N, y, delta); // atualiza este nó X
     if (l == r) return;
-    ll m = l + (r - l) / 2;
+    ll m = l + (r-l)/2;
     if (x <= m) {
       if (!no->left) no->left = new NodeX();
       updateX(no->left, l, m, x, y, delta);
@@ -69,7 +69,7 @@ struct SegTree2D {
   ll queryX(NodeX* no, ll l, ll r, ll xl, ll xr, ll yl, ll yr) {
     if (!no || l > xr || r < xl) return 0;
     if (l >= xl && r <= xr) return queryY(no->yRoot, 1, N, yl, yr);
-    ll m = l + (r - l) / 2;
+    ll m = l + (r-l)/2;
     return queryX(no->left,  l, m, xl, xr, yl, yr) + queryX(no->right, m + 1, r, xl, xr, yl, yr);
   }
 
